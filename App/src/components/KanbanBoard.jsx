@@ -1,13 +1,13 @@
-import React from "react";
-import { useDrag } from "react-dnd";
-import { ItemTypes } from "../constants/ItemTypes";
-import Ticket from "./Ticket";
+import React, { useContext } from "react"
+import { useDrag } from "react-dnd"
+import { ItemTypes } from "../constants/ItemTypes"
+import Ticket from "./Ticket"
+import { TicketDataContext  } from "../App"
 
 export default function KanbanBoard(prop) {
-	const tickets = prop.tickets;
-	const priorities = prop.priorities;
-	const categories = prop.categories;
-	console.log('aa', tickets);
+
+	const { ticketData } = useContext(TicketDataContext )
+	const { tickets, categories, priorities } = ticketData
 
 	return (
 		<div>
@@ -22,5 +22,5 @@ export default function KanbanBoard(prop) {
 				/>
 			))}
 		</div>
-	);
+	)
 }
